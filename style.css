@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(241, 212, 171);
+}
+
+nav{
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item{
+  color: white;
+  padding: 10px 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-item:hover{
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Adding Tooltip */
+.nav-item::after {
+  content: attr(data-tooltip); /* Use the tooltip text from the data-tooltip attribute */
+  position: absolute;
+  bottom: 100%; /* Position above the navigation item */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #555;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Ensures it doesn't interfere when not visible */
+  transition: opacity 0.3s, transform 0.3s; /* Smooth transition effects */
+}
+
+.nav-item:hover::after {
+  opacity: 1; /* Show the tooltip on hover */
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px); /* Slide the tooltip slightly up */
+}
